@@ -6,19 +6,32 @@ import './App.css';
 // var temp;
 function App() {
   const [news, setNews] = useState([]);
+  const [search, setSearch]=useState("")
+  const [query,setQuery] = useState('general')
+
   // const [temperature , setWeather] = useState([]);
   
   useEffect(() => {
     getNews();
     // getWeather();
-  }, [])
+  }, [query])
 
   const getNews = async () => {
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=5d2a31b1fb53495498bcf392c3cce810`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${query}&apiKey=5d2a31b1fb53495498bcf392c3cce810`);
     const data = await response.json();
     setNews(data.articles);
   }
- 
+  
+
+  const updateCategory = e =>{
+    var search = document.getElementById("categories").value;
+  }
+  const getCategories = e => {
+    e.preventDefault();
+    setQuery(search);
+    setSearch(" ");
+    console.log(search);
+  }
   
 // const getWeather = async () => {
 //   const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=ad25a412302f4680a8b152056202410&q=kolkata`)
@@ -33,10 +46,22 @@ function App() {
 
   return (
     <div className="App">
-      <form>
-        <input placeholder="Location:" className="serach"></input>
-        <button>Search</button>
-      </form>
+       <form className="selector" onSubmit={getCategories} >
+       <label for="cars">Choose a category:</label>
+      <select name="categories" id="categories"  className="search-bar">
+         <option value="general">All</option>
+         <option value="buisness">Buisness</option>
+         <option value="politics">Politics</option>
+         <option value="technology">Technology</option>
+         <option value="entertainment">Entertainment</option>
+         <option value="sports">Sports</option>
+      </select>
+      <button className="search-button" onClick={updateCategory} >Search</button>
+       </form>  
+      {/* <form className="search-form">
+        <input placeholder="Categories" className="search-bar"/>
+        <button className="search-button" >Search</button>
+      </form> */}
       {news.map(articles =>(
         <News
          className="news"

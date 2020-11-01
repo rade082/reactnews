@@ -1,9 +1,33 @@
 .news{
-    border: 0.2rem solid goldenrod;
-    width: 70%;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
+    border-radius:10px;
+    box-shadow: 0px 5px 20px rgb(71, 71, 71);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background:white;
+    align-items: center;
+    padding: 10px;
+   
 }
 .image{
-    width: 12vh;
+    width: 24vh;
+    border-radius: 10px;
+}
+.title{
+    width: 60%;
+    font-size: larger;
+}
+.content{
+    width: 70%;
+    font-size: smaller;
+}
+
+.date{
+    color: lightslategrey;
+}
+@media (max-width: 600px){
+    .title{
+        width: 100%;
+    }
 }
