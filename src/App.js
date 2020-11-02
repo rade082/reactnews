@@ -5,6 +5,7 @@ import './App.css';
 // var name;
 // var temp;
 function App() {
+
   const [news, setNews] = useState([]);
   const [search, setSearch]=useState("")
   const [query,setQuery] = useState('general')
@@ -24,15 +25,15 @@ function App() {
   
 
   const updateCategory = e =>{
-    var search = document.getElementById("categories").value;
+    setSearch(document.getElementById("categories").value);
   }
   const getCategories = e => {
     e.preventDefault();
     setQuery(search);
     setSearch(" ");
     console.log(search);
+    
   }
-  
 // const getWeather = async () => {
 //   const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=ad25a412302f4680a8b152056202410&q=kolkata`)
 //   const data = await response.json();
@@ -50,9 +51,10 @@ function App() {
        <label for="cars">Choose a category:</label>
       <select name="categories" id="categories"  className="search-bar">
          <option value="general">All</option>
-         <option value="buisness">Buisness</option>
+         <option value="business">Business</option>
          <option value="politics">Politics</option>
          <option value="technology">Technology</option>
+         <option value="health">Health</option>
          <option value="entertainment">Entertainment</option>
          <option value="sports">Sports</option>
       </select>

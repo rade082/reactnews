@@ -3,13 +3,24 @@ import style from './css/news.module.css';
 
 function news({title,source,description,image,link}) {
     return (
-        <div className={style.news}>
+        <div >
+            {/* <h1 className={style.title}>{title}</h1>
+            <p className={style.date}> Published On: {source.slice(0,10)}</p>
+            <img src={image} alt="image" className={style.image}/>
+            <p className={style.content} >{description}</p>
+            <p><a href={link} target="_blank" >read more</a> </p> */}
+            <div className={style.news}>
+            <img src={image} alt="image" className={style.image}/>
+            <div>
             <h1 className={style.title}>{title}</h1>
             <p className={style.date}> Published On: {source.slice(0,10)}</p>
-            <img src={image} alt="news" className={style.image}/>
             <p className={style.content} >{description}</p>
-            <p><a href={link} >read more</a> </p>
+            <p><a href={link} target="_blank" >read more</a> </p>
+            </div>
+            </div>
         </div>
+
+        
     )
 }
 

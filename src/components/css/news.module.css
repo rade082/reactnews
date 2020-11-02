@@ -4,30 +4,38 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
+    float: left;
     justify-content: space-around;
     background:white;
     align-items: center;
     padding: 10px;
+    width: 25%;
+    height: 30rem;
    
 }
 .image{
-    width: 24vh;
+    width:35vh;
+    height: 20vh;
     border-radius: 10px;
 }
 .title{
-    width: 60%;
     font-size: larger;
 }
 .content{
-    width: 70%;
     font-size: smaller;
 }
 
 .date{
     color: lightslategrey;
 }
+
 @media (max-width: 600px){
+    .news{
+        width: 85%;
+    }
+    
     .title{
         width: 100%;
+        font-size: medium;
     }
 }
